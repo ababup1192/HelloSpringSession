@@ -11,7 +11,7 @@ $ ./gradlew build buildDocker
 
 ```
 $ cd [Your WorkSpace]
-$ git clone https://gist.github.com/ababup1192/97260bf3dcfb084b59975d4aca17a1f3 spring-docker
+$ git clone https://gist.github.com/97260bf3dcfb084b59975d4aca17a1f3.git spring-docker
 $ cd spring-docker
 $ docker-compose -d up web
 // Launch Application on ${docker ip}:8080
