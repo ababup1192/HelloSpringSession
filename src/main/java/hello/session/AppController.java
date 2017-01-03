@@ -1,6 +1,5 @@
-package hello;
+package hello.session;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -9,10 +8,14 @@ import javax.inject.Inject;
 
 @Controller
 public class AppController {
+    private final SessionID sessionID;
+    private final PersonRepository repository;
+
     @Inject
-    private SessionID sessionID;
-    @Autowired
-    private PersonRepository repository;
+    public AppController(SessionID sessionID, PersonRepository repository) {
+        this.sessionID = sessionID;
+        this.repository = repository;
+    }
 
     @RequestMapping(value = "/session", method = RequestMethod.GET)
     @ResponseBody

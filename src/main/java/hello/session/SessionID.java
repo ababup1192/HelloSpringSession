@@ -1,4 +1,4 @@
-package hello;
+package hello.session;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
