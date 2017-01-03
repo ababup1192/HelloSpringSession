@@ -1,9 +1,7 @@
 package hello.room;
 
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.PagingAndSortingRepository;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Transactional
-public interface RoomRepository extends PagingAndSortingRepository<Room, Integer> {
+public interface RoomRepository extends JpaRepository<Room, Integer> {
+    Iterable<Room> findByRoomName(String equipmentName);
 }
