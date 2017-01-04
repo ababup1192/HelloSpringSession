@@ -1,6 +1,7 @@
 package hello.room;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -39,7 +40,7 @@ public class RoomController {
     @RequestMapping(value = "/rooms", method = RequestMethod.POST, consumes = "application/json")
     @ResponseBody
     public ResponseEntity<Room> saveRoom(@RequestBody Room room) {
-        return ResponseEntity.ok(roomService.saveRoom(room));
+        return ResponseEntity.status(HttpStatus.CREATED).body(roomService.saveRoom(room));
     }
 
     @RequestMapping(value = "/equipments", method = RequestMethod.GET)
@@ -54,7 +55,7 @@ public class RoomController {
             @RequestBody Equipment equipment,
             @RequestParam(name = "room_id") Integer roomId) {
 
-        return ResponseEntity.ok(roomService.saveEquipment(equipment, roomId));
+        return ResponseEntity.status(HttpStatus.CREATED).body(roomService.saveEquipment(equipment, roomId));
     }
 }
 
